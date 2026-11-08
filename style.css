@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --ink:#101010; --surface:#191919; --muted:#a7a4a0; --line:#34312e; --accent:#ff7048; }
+    html { scroll-behavior:smooth; scroll-padding-top:82px; }
+    body { margin:0; width:100%; color:#f6f3ef; font-family:'DM Sans',sans-serif; }
+    * { box-sizing:border-box; }
+    button, input { font:inherit; }
+    a, button { -webkit-tap-highlight-color:transparent; }
+    :is(a,button,input):focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
+    .site-nav { background:rgba(16,16,16,.88); backdrop-filter:blur(18px); border-bottom:1px solid rgba(255,255,255,.1); }
+    .nav-link { transition:color .2s; }
+    .nav-link:hover { color:var(--accent); }
+    .hero { min-height:calc(100 * min(var(--vh, 1vh), 1vh)); min-height:max(690px,calc(100 * min(var(--vh, 1vh), 1vh))); }
+    .hero-image { filter:brightness(.61) saturate(.8); }
+    .hero-shade { background:linear-gradient(90deg,rgba(10,10,10,.97) 0%,rgba(10,10,10,.83) 38%,rgba(10,10,10,.24) 100%),linear-gradient(0deg,#101010 0%,transparent 28%); }
+    .eyebrow { letter-spacing:.22em; text-transform:uppercase; }
+    .editorial { font-family:'Fraunces',serif; font-weight:400; }
+    .hero-title { font-size:clamp(3.8rem,8vw,8.5rem); line-height:.97; letter-spacing:-.067em; }
+    .hero-title em { color:var(--accent); font-weight:400; }
+    .section-title { font-size:clamp(2.65rem,5.2vw,5.8rem); line-height:1.06; letter-spacing:-.055em; }
+    .section-wrap { width:100%; max-width:1380px; margin:auto; padding-left:clamp(22px,5.5vw,88px); padding-right:clamp(22px,5.5vw,88px); }
+    .pill-btn { display:inline-flex; align-items:center; justify-content:center; gap:12px; min-height:54px; padding:14px 24px; border-radius:4px; font-weight:700; transition:transform .2s,background .2s,border-color .2s; }
+    .pill-btn:hover { transform:translateY(-3px); }
+    .outline-btn { border:1px solid #85817b; }
+    .outline-btn:hover { border-color:#fff; background:#ffffff12; }
+    .image-frame { overflow:hidden; background:#292724; }
+    .image-frame img { transition:transform .65s cubic-bezier(.2,.7,.2,1); }
+    .image-frame:hover img { transform:scale(1.055); }
+    .project-preview-video { display:none; }
+    .project-gif-link:hover .project-poster,
+    .project-gif-link:focus-visible .project-poster { display:none; }
+    .project-gif-link:hover .project-preview-video,
+    .project-gif-link:focus-visible .project-preview-video { display:block; }
+    .project-card { border-top:1px solid var(--line); padding-top:17px; }
+    .project-card .project-image { aspect-ratio:1.48; }
+    .project-image:after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(0,0,0,.38),transparent 48%); pointer-events:none; }
+    .skill-chip { border:1px solid #3b3835; border-radius:3px; padding:16px 19px; transition:border-color .2s,transform .2s; }
+    .skill-chip:hover { border-color:var(--accent); transform:translateY(-3px); }
+    .showreel-frame { aspect-ratio:16/9; }
+    main > section:not(#home) { content-visibility:auto; contain-intrinsic-size:auto 800px; }
+    .showreel-frame:after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(0,0,0,.58),transparent 55%); pointer-events:none; }
+    .reveal { animation:rise .8s both; }
+    .delay-1 { animation-delay:.12s; } .delay-2 { animation-delay:.24s; } .delay-3 { animation-delay:.36s; }
+    @keyframes rise { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    @media (max-width:767px) {
+      .hero { min-height:730px; }
+      .hero-shade { background:linear-gradient(90deg,rgba(10,10,10,.9),rgba(10,10,10,.45)),linear-gradient(0deg,#101010,transparent 50%); }
+      .hero-image { object-position:65% center; }
+      .mobile-menu { display:none; }
+      .mobile-menu.is-open { display:flex; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *, *:before, *:after { animation-duration:.01ms!important; transition-duration:.01ms!important; }
+    }
